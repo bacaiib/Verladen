@@ -2,41 +2,35 @@ package Verladen;
 
 public class Fahrzeug {
 
-    private int fahrzeugID;
-    private int plattenKapazität;
-    private int palettenGeladen;
-    private int palettenFrei;
+	// Attribute laut Beschreibung
+	public int fahrzeugId;
+	public int palettenKapazitaet;
+	public int palettenGeladen;
+	public int palettenFrei;
 
-    public Fahrzeug (int fID, int pKa, int pGe, int pF){
-        this.fahrzeugID = fID;
-        this.plattenKapazität = pKa;
-        this.palettenGeladen = pGe;
-        this.palettenFrei = pF;
-    }
+	// Auftrag auf dem Fahrzeug verladen.
+	// hier müssen die Kapazitäten nach dem Verladen korrigiert werden
+	public void verladeAuftrag(Auftrag a) {
+		
+		System.out.println("Verlade Auftrag: "+a.id+ " auf Fahrzeug: "+fahrzeugId);
+		System.out.println("Auftrag:  Palettenanzahl: " +a.geordertePaletten);
+		System.out.println("Fahrzeug: palettenFrei: " + palettenFrei);
+		
+		palettenFrei = palettenFrei - a.geordertePaletten;
+		palettenGeladen = palettenGeladen + a.geordertePaletten;
+		a.verladen = true;
+		
+		System.out.println("Fahrzeug: palettenFrei: " + palettenFrei);
+		System.out.println("\n\n");
 
-    public int getFahrzeugID(){
-        return fahrzeugID;
-    }
+	}
 
-    public int getplattenKapazität(){
-        return plattenKapazität;
-    }
-
-    public int getPalettenGeladen(){
-        return palettenGeladen;
-    }
-
-    public int getPalettenFrei(){
-        return palettenFrei;
-    }
-
-    public void Verladen(Auftrag a){
-        if (palettenFrei>=a.getP()){
-            palettenGeladen += a.getP();
-            palettenFrei -= a.getP();
-            a.setVerladen(true);
-            a.setFahrzeugID(this.fahrzeugID);
-        }
-    }
+	// Konstruktor
+	public Fahrzeug(int fahrzeugId, int palKapazitaet, int palGeladen, int palFrei) {
+		this.fahrzeugId = fahrzeugId;
+		this.palettenKapazitaet = palKapazitaet;
+		this.palettenGeladen = palGeladen;
+		this.palettenFrei = palFrei;
+	}
 
 }
