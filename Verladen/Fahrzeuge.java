@@ -33,5 +33,8 @@ public class Fahrzeuge {
 	// liefert ein spezielles Fahrzeug aus der Fahrzeugliste
 	public static Fahrzeug getFahrzeug() {
 		return fahrzeuge.get(idF++);
-	}	
+	}
+	public static Fahrzeug getFahrzeug_self_count(int count) {
+		return fahrzeuge.get(count);
+	}
 }

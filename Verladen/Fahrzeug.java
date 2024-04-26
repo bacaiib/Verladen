@@ -7,6 +7,7 @@ public class Fahrzeug {
 	public int palettenKapazitaet;
 	public int palettenGeladen;
 	public int palettenFrei;
+	//public Auftrag[] allesaufträgeimFahrzeug;
 
 	// Auftrag auf dem Fahrzeug verladen.
 	// hier müssen die Kapazitäten nach dem Verladen korrigiert werden
